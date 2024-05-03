@@ -1,0 +1,7 @@
+@use './global/variables' as v;
+
+$BLOCK_NAME: '.page-top';
+
+#{ $BLOCK_NAME } {
+  color: v.$c_text;
+}

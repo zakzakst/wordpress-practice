@@ -1,0 +1,67 @@
+{% extends 'layouts/default.njk' %}
+{% set PAGE_DATA = {
+  TITLE: 'ページタイトル',
+  DESCRIPTION: 'ページ概要',
+  PATH: '',
+  NAV: 'sample',
+  ROOT: './',
+  SCHEMA_ITEMS: [
+    {
+      ID: SITE_DOMAIN,
+      NAME: SITE_NAME
+    },
+    {
+      ID: SITE_DOMAIN + 'sample.html',
+      NAME: 'サンプル'
+    }
+  ],
+  BREADCRUMB_ITEMS: [
+    {
+      LINK: '',
+      LABEL: 'トップ'
+    },
+    {
+      LINK: '/sample.html',
+      LABEL: 'サンプル'
+    }
+  ]
+} %}
+
+{# ▼▼▼ コンポーネント読み込み ▼▼▼ #}
+{% from 'components/breadcrumb.njk' import default as BREADCRUMB %}
+{% from 'components/modal.njk' import default as MODAL %}
+{# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
+
+{% block PAGE_HEAD %}
+  {# ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ #}
+  <link rel="stylesheet" href="/src/styles/style-top.scss">
+  {# ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ #}
+{% endblock %}
+
+{% block PAGE_CONTENT %}
+  {# ▼▼▼ パンくず ▼▼▼ #}
+  {{ BREADCRUMB(PAGE_DATA.BREADCRUMB_ITEMS) }}
+  {# ▲▲▲ パンくず ▲▲▲ #}
+  <div class="page-top">
+    <h1>TOP</h1>
+    {% raw %}
+      <div id="app"><img src="/assets/img/vite.svg" alt="" width="1" height="1"></div>
+    {% endraw %}
+  </div>
+{% endblock %}
+
+{% block FIX_CONTENT %}
+  {# ▼▼▼ 固定要素（モーダルなど） ▼▼▼ #}
+  {# ▼▼▼ モーダル ▼▼▼ #}
+  {% call MODAL('modal') %}
+    <p>モーダル</p>
+  {% endcall %}
+  {# ▲▲▲ モーダル ▲▲▲ #}
+  {# ▲▲▲ 固定要素（モーダルなど） ▲▲▲ #}
+{% endblock %}
+
+{% block PAGE_FOOT %}
+  {# ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ #}
+  <script type="module" src="/src/scripts/top.js"></script>
+  {# ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ #}
+{% endblock %}

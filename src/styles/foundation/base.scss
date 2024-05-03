@@ -1,0 +1,16 @@
+@use '../global/variables' as v;
+@forward '../../../node_modules/reset-css/sass/_reset';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: v.$ff_default;
+  font-size: v.$fz_default;
+  font-weight: v.$fw_default;
+  line-height: v.$lh_default;
+  color: v.$c_text;
+}
