@@ -1,7 +1,7 @@
 import { header } from '@/scripts/modules/+'
-import { index } from '@/scripts/modules/vue-sample/+'
+// import { index } from '@/scripts/modules/vue-sample/+'
 
 header()
-index()
+// index()
 
 console.log('script')

@@ -1,6 +1,5 @@
 {
   "SITE_DOMAIN": "https://domain/",
-  "SITE_ROOT": "",
   "SITE_NAME": "サイト名",
   "SITE_SHORTCUT_ICON": "https://domain/path/to/icon",
   "SITE_APPLE_ICON": "https://domain/path/to/icon",

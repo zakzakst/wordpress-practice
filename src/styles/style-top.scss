@@ -3,5 +3,6 @@
 $BLOCK_NAME: '.page-top';
 
 #{ $BLOCK_NAME } {
-  color: v.$c_text;
+  // color: v.$c_text;
+  display: block;
 }

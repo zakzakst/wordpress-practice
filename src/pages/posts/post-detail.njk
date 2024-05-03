@@ -3,7 +3,7 @@
   TITLE: 'ページタイトル',
   DESCRIPTION: 'ページ概要',
   PATH: '',
-  NAV: 'top',
+  NAV: 'post-detail',
   ROOT: './',
   SCHEMA_ITEMS: [
     {
@@ -19,20 +19,20 @@
 
 {% block PAGE_HEAD %}
   {# ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ #}
-  <link rel="stylesheet" href="/src/styles/style-top.scss">
+  {# <link rel="stylesheet" href="/src/styles/style-top.scss"> #}
   {# ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ #}
 {% endblock %}
 
 {% block PAGE_CONTENT %}
-  <div class="page-top">
-    {% include 'includes/top/hero.njk' %}
-    {% include 'includes/top/about.njk' %}
-    {% include 'includes/top/posts.njk' %}
+  <div class="page-post-detail">
+    {% include 'includes/post-detail/hero.njk' %}
+    {# TODO: パンくず追加 #}
+    {% include 'includes/post-detail/content.njk' %}
   </div>
 {% endblock %}
 
 {% block PAGE_FOOT %}
   {# ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ #}
-  <script type="module" src="/src/scripts/top.js"></script>
+  {# <script type="module" src="/src/scripts/top.js"></script> #}
   {# ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ #}
 {% endblock %}

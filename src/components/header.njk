@@ -1,38 +1,53 @@
 {% set NAV_ITEMS = [
   {
-    id: 'home',
+    id: 'top',
     link: '/',
-    label: 'HOME'
+    label: 'TOP'
   },
   {
-    id: 'parts',
-    link: '/parts.html',
-    label: 'PARTS'
-  },
-  {
-    id: 'page',
-    link: '/page.html',
-    label: 'PAGE'
+    id: 'posts',
+    link: '/posts/',
+    label: '記事一覧'
   }
 ] %}
 
 <!-- ▼▼▼ ヘッダー ▼▼▼ -->
 <header class="header">
-  <nav>
-    <ul>
-      {% for ITEM in NAV_ITEMS %}
-        {# クラス名を判定 #}
-        {% if ITEM.id === PAGE_DATA.NAV %}
-          {% set CLASS = ' class="--current"' %}
-        {% else %}
-          {% set CLASS = '' %}
-        {% endif %}
+  <nav class="navbar" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">LOGO</a>
 
-        <li>
-          <a href="{{ ITEM.link }}"{{ CLASS | safe }}>{{ ITEM.label }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+      <button type="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        {% for ITEM in NAV_ITEMS %}
+          {# クラス名を判定 #}
+          {% if ITEM.id === PAGE_DATA.NAV %}
+            {% set CLASS = 'is-active' %}
+          {% else %}
+            {% set CLASS = '' %}
+          {% endif %}
+          <a href="{{ ITEM.link }}" class="navbar-item {{ CLASS | safe }}">{{ ITEM.label }}</a>
+        {% endfor %}
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="/contact/" class="button is-white">
+              <strong>お問い合わせ</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
 <!-- ▲▲▲ ヘッダー ▲▲▲ -->
