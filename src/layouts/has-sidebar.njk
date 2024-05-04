@@ -34,15 +34,19 @@
     {{ BREADCRUMB(PAGE_DATA.BREADCRUMB_ITEMS) }}
     {# ▲▲▲ パンくず ▲▲▲ #}
 
-    {% if PAGE_DATA.FULL_COLUMN %}
-      {% set CLASS = '' %}
-    {% else %}
-      {% set CLASS = 'is-max-desktop' %}
-    {% endif %}
-    <div class="container {{ CLASS | safe }}">
+    <div class="container">
       <div class="section">
-        {% block PAGE_CONTENT %}
-        {% endblock %}
+        <div class="columns is-desktop">
+          <div class="column is-three-quarters-desktop">
+            {% block PAGE_CONTENT %}
+            {% endblock %}
+          </div>
+          <div class="column">
+            {# ▼▼▼ サイドバー ▼▼▼ #}
+            {% include 'components/sidebar.njk' %}
+            {# ▲▲▲ サイドバー ▲▲▲ #}
+          </div>
+        </div>
       </div>
     </div>
   </main>

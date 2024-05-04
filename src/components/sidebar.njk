@@ -1,0 +1,33 @@
+{% set SIDEBAR_ITEMS = [
+  {
+    ID: 'top',
+    LINK: '/',
+    LABEL: 'トップ'
+  },
+  {
+    ID: 'posts',
+    LINK: '/posts/',
+    LABEL: '記事一覧'
+  },
+  {
+    ID: 'post-detail',
+    LINK: '/posts/detail.html',
+    LABEL: '記事詳細'
+  }
+] %}
+
+<!-- ▼▼▼ サイドバー ▼▼▼ -->
+<nav class="panel">
+  <p class="panel-heading">最新記事</p>
+
+  {% for ITEM in SIDEBAR_ITEMS %}
+    {# クラス名を判定 #}
+    {% if ITEM.ID === PAGE_DATA.NAV %}
+      {% set CLASS = 'is-active' %}
+    {% else %}
+      {% set CLASS = '' %}
+    {% endif %}
+    <a href="{{ ITEM.LINK }}" class="panel-block {{ CLASS | safe }}">{{ ITEM.LABEL }}</a>
+  {% endfor %}
+</nav>
+<!-- ▲▲▲ サイドバー ▲▲▲ -->

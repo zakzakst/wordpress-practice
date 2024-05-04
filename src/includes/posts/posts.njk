@@ -1,7 +1,65 @@
+{% set POST_ITEMS = [
+  {
+    THUMBNAIL: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    LINK: '/posts/detail.html',
+    TITLE: '記事01'
+  },
+  {
+    THUMBNAIL: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    LINK: '/posts/detail.html',
+    TITLE: '記事02'
+  },
+  {
+    THUMBNAIL: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    LINK: '/posts/detail.html',
+    TITLE: '記事03'
+  },
+  {
+    THUMBNAIL: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    LINK: '/posts/detail.html',
+    TITLE: '記事04'
+  },
+  {
+    THUMBNAIL: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    LINK: '/posts/detail.html',
+    TITLE: '記事05'
+  },
+  {
+    THUMBNAIL: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    LINK: '/posts/detail.html',
+    TITLE: '記事06'
+  },
+  {
+    THUMBNAIL: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    LINK: '/posts/detail.html',
+    TITLE: '記事07'
+  },
+  {
+    THUMBNAIL: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    LINK: '/posts/detail.html',
+    TITLE: '記事08'
+  }
+] %}
+
+{# ▼▼▼ コンポーネント読み込み ▼▼▼ #}
+{% from 'components/post-card.njk' import default as POST_CARD %}
+{# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
+
 <!-- ▼▼▼ 記事一覧 ▼▼▼ -->
-<div class="container">
-  <section class="section">
-    {# TODO: 記事一覧コンポーネント作る（ページネーションや絞り込みフォームも） #}
-  </section>
+{# TODO: 絞り込みフォーム作る #}
+<div class="fixed-grid has-2-cols-mobile has-3-cols-tablet has-4-cols-desktop">
+  <div class="grid">
+    {% for ITEM in POST_ITEMS %}
+    <div class="cell">
+      {{ POST_CARD(ITEM) }}
+    </div>
+    {% endfor %}
+  </div>
 </div>
+
+{# ▼▼▼ ページネーション ▼▼▼ #}
+<div class="mt-6">
+  {% include 'components/pagination.njk' %}
+</div>
+{# ▲▲▲ ページネーション ▲▲▲ #}
 <!-- ▲▲▲ 記事一覧 ▲▲▲ -->

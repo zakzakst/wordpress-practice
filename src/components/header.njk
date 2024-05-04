@@ -1,13 +1,13 @@
 {% set NAV_ITEMS = [
   {
-    id: 'top',
-    link: '/',
-    label: 'TOP'
+    ID: 'top',
+    LINK: '/',
+    LABEL: 'TOP'
   },
   {
-    id: 'posts',
-    link: '/posts/',
-    label: '記事一覧'
+    ID: 'posts',
+    LINK: '/posts/',
+    LABEL: '記事一覧'
   }
 ] %}
 
@@ -29,12 +29,12 @@
       <div class="navbar-start">
         {% for ITEM in NAV_ITEMS %}
           {# クラス名を判定 #}
-          {% if ITEM.id === PAGE_DATA.NAV %}
+          {% if ITEM.ID === PAGE_DATA.NAV %}
             {% set CLASS = 'is-active' %}
           {% else %}
             {% set CLASS = '' %}
           {% endif %}
-          <a href="{{ ITEM.link }}" class="navbar-item {{ CLASS | safe }}">{{ ITEM.label }}</a>
+          <a href="{{ ITEM.LINK }}" class="navbar-item {{ CLASS | safe }}">{{ ITEM.LABEL }}</a>
         {% endfor %}
       </div>
 
