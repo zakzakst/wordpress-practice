@@ -1,18 +1,26 @@
 {% macro default(ITEMS) %}
+{% if ITEMS.length %}
 <!-- ▼▼▼ パンくず ▼▼▼ -->
-<ul>
-  {% for ITEM in ITEMS %}
-    {# クラス名を判定 #}
-    {% if ITEMS.length === loop.index %}
-      {% set CLASS = ' class="--active"' %}
-    {% else %}
-      {% set CLASS = '' %}
-    {% endif %}
-
-    <li>
-      <a href="{{ ITEM.LINK }}"{{ CLASS | safe }}>{{ ITEM.LABEL }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<div class="container">
+  <div class="section">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        {% for ITEM in ITEMS %}
+          {# 現在のページか判定 #}
+          {% if ITEMS.length === loop.index %}
+            <li>
+              <a href="{{ ITEM.LINK }}" aria-current="page">{{ ITEM.LABEL }}</a>
+            </li>
+          {% else %}
+            <li>
+              <a href="{{ ITEM.LINK }}">{{ ITEM.LABEL }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
 <!-- ▲▲▲ パンくず ▲▲▲ -->
+{% endif %}
 {% endmacro %}

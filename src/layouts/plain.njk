@@ -11,11 +11,6 @@
   {# ▲▲▲ HEAD（ページ専用） ▲▲▲ #}
 </head>
 <body>
-  {# ▼▼▼ コンポーネント読み込み ▼▼▼ #}
-  {% from 'components/hero.njk' import default as HERO %}
-  {% from 'components/breadcrumb.njk' import default as BREADCRUMB %}
-  {# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
-
   {# ▼▼▼ ページローダー ▼▼▼ #}
   {# {% include 'components/page-loader.njk' %} #}
   {# ▲▲▲ ページローダー ▲▲▲ #}
@@ -26,15 +21,6 @@
 
   <!-- ▼▼▼ ページ内容 ▼▼▼ -->
   <main>
-    {# ▼▼▼ ヒーローエリア ▼▼▼ #}
-    {{ HERO(PAGE_DATA.TITLE) }}
-    {# ▲▲▲ ヒーローエリア ▲▲▲ #}
-
-    {# ▼▼▼ パンくず ▼▼▼ #}
-    {{ BREADCRUMB(PAGE_DATA.BREADCRUMB_ITEMS) }}
-    {# ▲▲▲ パンくず ▲▲▲ #}
-
-    {# TODO: サイドバー有り無し #}
     {% block PAGE_CONTENT %}
     {% endblock %}
   </main>

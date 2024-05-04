@@ -1,6 +1,6 @@
 {% extends 'layouts/default.njk' %}
 {% set PAGE_DATA = {
-  TITLE: 'ページタイトル',
+  TITLE: '記事詳細',
   DESCRIPTION: 'ページ概要',
   PATH: '',
   NAV: 'post-detail',
@@ -14,6 +14,20 @@
       ID: SITE_DOMAIN + 'sample.html',
       NAME: 'サンプル'
     }
+  ],
+  BREADCRUMB_ITEMS: [
+    {
+      LINK: '/',
+      LABEL: 'トップ'
+    },
+    {
+      LINK: '/posts/',
+      LABEL: '記事一覧'
+    },
+    {
+      LINK: '/posts/detail.html',
+      LABEL: '記事詳細'
+    }
   ]
 } %}
 
@@ -25,8 +39,6 @@
 
 {% block PAGE_CONTENT %}
   <div class="page-post-detail">
-    {% include 'includes/post-detail/hero.njk' %}
-    {# TODO: パンくず追加 #}
     {% include 'includes/post-detail/content.njk' %}
   </div>
 {% endblock %}
