@@ -36,12 +36,13 @@
 
 {% block PAGE_CONTENT %}
   <div class="page-posts">
-    {% include 'includes/posts/posts.njk' %}
+    {# {% include 'includes/posts/posts.njk' %} #}
+    <div id="js-posts-vue-app"></div>
   </div>
 {% endblock %}
 
 {% block PAGE_FOOT %}
   {# ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ #}
-  {# <script type="module" src="/src/scripts/top.js"></script> #}
+  <script type="module" src="/src/scripts/posts-vue.js"></script>
   {# ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ #}
 {% endblock %}
