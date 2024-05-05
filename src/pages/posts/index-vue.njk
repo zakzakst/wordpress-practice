@@ -1,0 +1,47 @@
+{% extends 'layouts/default.njk' %}
+{% set PAGE_DATA = {
+  TITLE: '記事一覧',
+  DESCRIPTION: 'ページ概要',
+  PATH: '',
+  NAV: 'posts-vue',
+  ROOT: './',
+  SCHEMA_ITEMS: [
+    {
+      ID: SITE_DOMAIN,
+      NAME: SITE_NAME
+    },
+    {
+      ID: SITE_DOMAIN + 'sample.html',
+      NAME: 'サンプル'
+    }
+  ],
+  BREADCRUMB_ITEMS: [
+    {
+      LINK: '/',
+      LABEL: 'トップ'
+    },
+    {
+      LINK: '/posts/',
+      LABEL: '記事一覧'
+    }
+  ],
+  FULL_COLUMN: true
+} %}
+
+{% block PAGE_HEAD %}
+  {# ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ #}
+  {# <link rel="stylesheet" href="/src/styles/style-top.scss"> #}
+  {# ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ #}
+{% endblock %}
+
+{% block PAGE_CONTENT %}
+  <div class="page-posts">
+    {% include 'includes/posts/posts.njk' %}
+  </div>
+{% endblock %}
+
+{% block PAGE_FOOT %}
+  {# ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ #}
+  {# <script type="module" src="/src/scripts/top.js"></script> #}
+  {# ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ #}
+{% endblock %}

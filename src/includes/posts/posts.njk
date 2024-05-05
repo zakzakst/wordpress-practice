@@ -46,8 +46,31 @@
 {# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
 
 <!-- ▼▼▼ 記事一覧 ▼▼▼ -->
-{# TODO: 絞り込みフォーム作る #}
-<div class="fixed-grid has-2-cols-mobile has-3-cols-tablet has-4-cols-desktop">
+{# ▼▼▼ 絞り込みフォーム ▼▼▼ #}
+<div class="box">
+  <div class="field">
+    <label class="label">カテゴリー</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="question">
+        商品コラム
+      </label>
+      <label class="radio">
+        <input type="radio" name="question">
+        イベント情報
+      </label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">キーワード</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="例）イベント">
+    </div>
+  </div>
+</div>
+{# ▲▲▲ 絞り込みフォーム ▲▲▲ #}
+
+<div class="fixed-grid has-2-cols-mobile has-3-cols-tablet has-4-cols-desktop mt-6">
   <div class="grid">
     {% for ITEM in POST_ITEMS %}
     <div class="cell">
