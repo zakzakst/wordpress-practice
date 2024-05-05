@@ -20,6 +20,11 @@
         <input class="input" type="text" placeholder="例）イベント" />
       </div>
     </div>
+    <div class="field mt-5">
+      <div class="control">
+        <button type="button" class="button is-link">絞り込む</button>
+      </div>
+    </div>
   </div>
   <!-- ▲▲▲ 絞り込みフォーム ▲▲▲ -->
 
@@ -29,24 +34,11 @@
   >
     <div class="grid">
       <div v-for="item in postItems" :key="item.id" class="cell">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img
-                src="https://bulma.io/assets/images/placeholders/1280x960.png"
-                alt=""
-                width="4"
-                height="3"
-              />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="content">タイトル</div>
-          </div>
-          <footer class="card-footer">
-            <a href="/posts/detail.html" class="card-footer-item">記事を見る</a>
-          </footer>
-        </div>
+        <PostsVueCard
+          :title="item.title"
+          :thumbnail="item.thumbnail"
+          :link="item.link"
+        />
       </div>
     </div>
   </div>
@@ -54,66 +46,34 @@
 
   <!-- ▼▼▼ ページネーション ▼▼▼ -->
   <div class="mt-6">
-    <nav class="pagination is-centered" aria-label="pagination">
-      <a href="#" class="pagination-previous">Prev</a>
-      <a href="#" class="pagination-next">Next</a>
-      <ul class="pagination-list">
-        <li>
-          <a href="#" class="pagination-link" aria-label="Goto page 1">1</a>
-        </li>
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        <li>
-          <a href="#" class="pagination-link" aria-label="Goto page 45">45</a>
-        </li>
-        <li>
-          <a class="pagination-link is-current" aria-current="page">46</a>
-        </li>
-        <li>
-          <a href="#" class="pagination-link" aria-label="Goto page 47">47</a>
-        </li>
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        <li>
-          <a href="#" class="pagination-link" aria-label="Goto page 86">86</a>
-        </li>
-      </ul>
-    </nav>
+    <PostsVuePagination v-bind="pagination" @move-page="onMovePage" />
   </div>
   <!-- ▲▲▲ ページネーション ▲▲▲ -->
 </template>
 
 <script setup>
 import { ref } from 'vue'
-const postItemsData = [
-  {
-    id: '01',
-  },
-  {
-    id: '02',
-  },
-  {
-    id: '03',
-  },
-  {
-    id: '04',
-  },
-  {
-    id: '05',
-  },
-  {
-    id: '06',
-  },
-  {
-    id: '07',
-  },
-  {
-    id: '08',
-  },
-  {
-    id: '09',
-  },
-  {
-    id: '10',
-  },
-]
+import PostsVueCard from './PostsVueCard.vue'
+import PostsVuePagination from './PostsVuePagination.vue'
+
+const postItemsData = [...Array(10)].map((item, index) => {
+  return {
+    id: index,
+    title: 'タイトル',
+    thumbnail: 'https://bulma.io/assets/images/placeholders/1280x960.png',
+    link: '/posts/detail.html',
+  }
+})
 const postItems = ref(postItemsData)
+
+const paginationData = {
+  total: 860,
+  current: 46,
+  perPage: 10,
+}
+const pagination = ref(paginationData)
+
+const onMovePage = (e) => {
+  console.log('move page', e)
+}
 </script>
